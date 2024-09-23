@@ -187,6 +187,24 @@ class Kernel extends ConsoleKernel
 }
 ```
 
+On Laravel 11 we can register it in `bootstap/providers.php like so:
+
+```php
+<?php
+
+use App\Actions\UpdateUserPassword;
+
+...
+
+return Application::configure(basePath: dirname(__DIR__))
+    -> ->withCommands([
+        UpdateUserPassword::class,
+    ])
+    ...
+```
+
+
+
 ## Next steps
 
 Hopefully, this little tutorial helped to see what this package can achieve for you. On top of controllers and commands, Laravel Actions also supports jobs and listeners following the same conventions — by implementing the `asJob` and `asListener` methods.
